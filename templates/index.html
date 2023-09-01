@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California House Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>California House Price Prediction</h1>
+        <form method="POST">
+            <label for="MedInc">Median Income (in tens of thousands of dollars):</label>
+            <input type="text" name="MedInc" required><br>
+            <p>Enter the median income of the neighborhood (e.g., 2.5 represents $25,000).</p><br>
+
+            <label for="HouseAge">House Age (in years):</label>
+            <input type="text" name="HouseAge" required><br>
+            <p>Enter the average age of houses in the neighborhood (e.g., 30).</p><br>
+
+            <label for="AveRooms">Average Rooms:</label>
+            <input type="text" name="AveRooms" required><br>
+            <p>Enter the average number of rooms in houses in the neighborhood (e.g., 5).</p><br>
+
+            <label for="AveBedrms">Average Bedrooms:</label>
+            <input type="text" name="AveBedrms" required><br>
+            <p>Enter the average number of bedrooms in houses in the neighborhood (e.g., 3).</p><br>
+
+            <label for="Population">Population (actual count of people):</label>
+            <input type="text" name="Population" required><br>
+            <p>Enter the population of the neighborhood (e.g., 1500 represents 1,500 people).</p><br>
+
+            <label for="AveOccup">Average Occupancy:</label>
+            <input type="text" name="AveOccup" required><br>
+            <p>Enter the average occupancy of houses in the neighborhood (e.g., 2.5).</p><br>
+
+            <label for="Latitude">Latitude:</label>
+            <input type="text" name="Latitude" required><br>
+            <p>Enter the latitude coordinate of the neighborhood (e.g., 34.05).</p><br>
+
+            <label for="Longitude">Longitude:</label>
+            <input type="text" name="Longitude" required><br>
+            <p>Enter the longitude coordinate of the neighborhood (e.g., -118.24).</p><br>
+
+            <input type="submit" value="Predict Price">
+        </form>
+
+        {% if predicted_price %}
+        <div class="result">
+            <h2>Predicted House Price:</h2>
+            <p>${{ "%.2f"|format(predicted_price*100000) }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
