@@ -32,7 +32,6 @@ print(f"Test R2 score: {test_score:.2f}")
 joblib.dump(model, 'california_house_price_model.pkl')
 
 app = Flask(__name__)
-server = app.server
 
 # Load the trained model
 model = joblib.load('california_house_price_model.pkl')
