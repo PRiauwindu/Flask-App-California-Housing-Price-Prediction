@@ -22,7 +22,7 @@ X_test_scaled = scaler.transform(X_test)
 model = LinearRegression()
 model.fit(X_train_scaled, y_train)
 
-# Evaluate the model (you can use more advanced evaluation techniques)
+# Evaluate the model
 train_score = model.score(X_train_scaled, y_train)
 test_score = model.score(X_test_scaled, y_test)
 print(f"Train R2 score: {train_score:.2f}")
